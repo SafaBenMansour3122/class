@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+class Human {
+  name ;
+  job ;
+  skills ;
+    constructor(){
+      this.name="safa"
+      this.job="developer"
+      this.skills=['java','react']
+    }
 }
+class Student extends Human{
+    constructor(){
+       super();
+    }
+  getJob(newjob){
+    this.job=newjob
+    console.log(this.job)
+  }
 
-export default App;
+  learnNewSkill(skill){
+    this.skills.push(skill)
+    console.log(this.skills)
+  }
+
+  forgetSkill(skill){
+    this.skills=this.skills.filter((S)=>{return S!=skill})
+    console.log(this.skills)
+  }
+
+  leaveJob(){
+    this.job="unmployed"
+    console.log(this.job)
+  }
+
+}
+const me = new Student();
+
+me.getJob("Web developer");
+
+me.learnNewSkill("React");
+
+me.forgetSkill("React");
+
+me.leaveJob();
+
+
+export default  Student  ;
